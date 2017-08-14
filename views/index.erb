@@ -16,19 +16,28 @@
 
 </head>
 <body>
-<p>
-<% if message == "You got it right!" %>
-  <%= message %>
-  <%= "THE SECRET NUMBER IS #{number}" %>
-<% else %>
-  <%= message %>
-<% end %>
-</p>
-<p>
-<form>
-<input type='text' name='guess' />
-<input type='submit' value='Guess!' />
-</form>
-</p>
+  <p>
+
+  	<% if message == nil %>
+  	  <%= life %> more tries left!<br/>
+  	  <%= "Please provide a number between 0 and 100 (included)" %><br/>
+
+    <% elsif life == 0  %>
+      <%= "You Lose!<br/>The number was #{number}<br/>A new number has been generated, play again!<br/>" %>
+
+    <% elsif message == "You got it right!" %>
+      <%= "#{message}<br/> THE SECRET NUMBER IS #{number}<br/> A new number has been generated, play again! <br/>"%>
+
+    <% else %>
+      <%= message %><br/>
+      <%= "#{life} more tries left" %>
+    <% end %>
+  </p>
+  <p>
+    <form>
+	  <input type='text' name='guess' />
+	  <input type='submit' value='Guess!' />
+	</form>
+  </p>
 </body>
 </html>
