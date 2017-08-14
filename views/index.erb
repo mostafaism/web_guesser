@@ -31,6 +31,10 @@
     <% else %>
       <%= message %><br/>
       <%= "#{life} more tries left" %>
+
+      <% if cheat == "true" %>
+        <%= "<br/>THE SECRET NUMBER IS #{number}" %>
+      <% end %>
     <% end %>
   </p>
   <p>

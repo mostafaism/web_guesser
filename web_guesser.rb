@@ -12,6 +12,7 @@ get '/' do
   end
 
   guess = params["guess"]
+  cheat = params[:cheat]
   message = check_guess(guess)
   
   if message == "You got it right!"
@@ -22,7 +23,7 @@ get '/' do
     @@life -= 1
   end
 
-  erb :index, locals:{number:SECRET_NUMBER, message:message, life:@@life}
+  erb :index, locals:{number: SECRET_NUMBER, message: message, life: @@life, cheat: cheat}
 end
 
 
